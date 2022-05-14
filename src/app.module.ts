@@ -1,7 +1,7 @@
-import { Module } from '@nestjs/common'
-import { MongooseModule } from '@nestjs/mongoose'
+import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 
-import { JogadoresModule } from './jogadores/jogadores.module'
+import { JogadoresModule } from './jogadores/jogadores.module';
 
 @Module({
   imports: [
@@ -12,7 +12,7 @@ import { JogadoresModule } from './jogadores/jogadores.module'
         useCreateIndex: true,
         useUnifiedTopology: true,
         useFindAndModify: false,
-      }
+      },
     ),
     JogadoresModule,
   ],
