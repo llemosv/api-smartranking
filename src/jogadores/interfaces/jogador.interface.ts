@@ -1,6 +1,6 @@
 import { Document } from 'mongoose';
 
-export interface Jogador extends Document {
+interface Jogador extends Document {
   readonly telefoneCelular: string;
   readonly email: string;
   nome: string;
@@ -8,3 +8,5 @@ export interface Jogador extends Document {
   posicaoRanking: number;
   urlFotoJogador: string;
 }
+
+export { Jogador };

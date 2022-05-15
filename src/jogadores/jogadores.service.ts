@@ -1,4 +1,3 @@
-/* eslint-disable new-cap */
 import { Model } from 'mongoose';
 
 import { BadRequestException, Injectable, Logger, NotFoundException } from '@nestjs/common';

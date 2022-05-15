@@ -35,8 +35,8 @@ export class JogadoresController {
 
   @Get('listById/:_id')
   async getPlayerById(@Param('_id', JogadoresValidacaoParametrosPipe) _id: string): Promise<Jogador> {
-    const searchPlayerEmail = await this.jogadoresService.getById(_id);
-    return searchPlayerEmail;
+    const searchPlayerId = await this.jogadoresService.getById(_id);
+    return searchPlayerId;
   }
 
   @Delete('delete/:_id')
