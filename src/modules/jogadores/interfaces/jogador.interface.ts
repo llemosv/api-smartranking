@@ -1,4 +1,4 @@
-import { Document } from "mongoose";
+import { Document } from 'mongoose';
 
 interface Jogador extends Document {
   readonly telefoneCelular: string;

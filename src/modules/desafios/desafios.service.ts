@@ -89,9 +89,9 @@ export class DesafiosService {
     const challengeFound = await this.desafioModel.findById(_id).exec();
 
     if (!challengeFound) throw new NotFoundException(`Desafio ${_id} não cadastrado.`);
-    console.log(challengeFound);
-    const filterPlayer = challengeFound.jogadores.filter((player) => player._id === atribuirDesafioPartidaDto.def);
-    console.log(filterPlayer);
+
+    const filterPlayer = challengeFound.jogadores.filter((player) => player._id == atribuirDesafioPartidaDto.def);
+
     if (filterPlayer.length === 0) throw new BadRequestException(`O jogador vencedor não faz parte do desafio!`);
 
     const createMatch = new this.partidaModel(atribuirDesafioPartidaDto);
