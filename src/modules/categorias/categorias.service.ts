@@ -1,5 +1,5 @@
 import { Model } from 'mongoose';
-import { JogadoresService } from 'src/jogadores/jogadores.service';
+import { JogadoresService } from 'src/modules/jogadores/jogadores.service';
 
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
@@ -35,7 +35,7 @@ export class CategoriasService {
     const categoryExists = await this.categoriaModel.findOne({ categoria }).exec();
 
     if (!categoryExists) {
-      throw new NotFoundException(`A categoria ${categoria} não foi encontrado na nossa base de dados.`);
+      throw new NotFoundException(`A categoria ${categoria.toUpperCase()} não foi encontrado na nossa base de dados.`);
     }
 
     await this.categoriaModel.findOneAndUpdate({ categoria }, { $set: atualizarCategoriaDto }).exec();
@@ -57,6 +57,7 @@ export class CategoriasService {
   }
 
   async assignCategory(params: string[]): Promise<void> {
+    // eslint-disable-next-line dot-notation
     const categoria = params['categoria'];
     const idJogador = params['idJogador'];
 
@@ -78,5 +79,13 @@ export class CategoriasService {
 
     categoryExists.jogadores.push(idJogador);
     await this.categoriaModel.findOneAndUpdate({ categoria }, { $set: categoryExists }).exec();
+  }
+
+  async getCategoryPlayer(_id: any): Promise<Categoria> {
+    await this.jogadoresService.getById(_id);
+
+    const playerCategory = await this.categoriaModel.findOne().where('jogadores').in(_id).exec();
+
+    return playerCategory;
   }
 }

@@ -1,6 +1,6 @@
-import { ArrayMinSize, IsArray, IsNotEmpty, IsString } from 'class-validator';
+import { ArrayMinSize, IsArray, IsNotEmpty, IsString } from "class-validator";
 
-import { Evento } from '../interfaces/categoria.interface';
+import { Evento } from "../interfaces/categoria.interface";
 
 class AtualizarCategoriaDto {
   @IsString()

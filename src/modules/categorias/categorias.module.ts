@@ -10,5 +10,6 @@ import { CategoriaSchema } from './interfaces/schemas/categoria.schema';
   imports: [MongooseModule.forFeature([{ name: 'Categoria', schema: CategoriaSchema }]), JogadoresModule],
   controllers: [CategoriasController],
   providers: [CategoriasService],
+  exports: [CategoriasService],
 })
 export class CategoriasModule {}

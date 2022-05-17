@@ -13,7 +13,8 @@
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 13,
-        "sourceType": "module"
+        "sourceType": "module",
+        "project": "./tsconfig.json"
     },
     "plugins": [
         "@typescript-eslint",
@@ -21,6 +22,8 @@
         "eslint-plugin-import-helpers"
     ],
     "rules": {
+        "array-callback-return": 0,
+        "no-underscore-dangle": 0,
         "prefer-destructuring": 0,
         "dot-notation": 0,
         "camelcase": "off",
