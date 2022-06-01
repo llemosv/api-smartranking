@@ -1,4 +1,4 @@
-import * as mongoose from "mongoose";
+import * as mongoose from 'mongoose';
 
 export const JogadorSchema = new mongoose.Schema(
   {
@@ -9,5 +9,5 @@ export const JogadorSchema = new mongoose.Schema(
     posicaoRanking: Number,
     urlFotoJogador: String,
   },
-  { timestamps: true, collection: "jogadores" }
+  { timestamps: true, collection: 'jogadores' },
 );
